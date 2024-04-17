@@ -8,11 +8,6 @@ RUN wget https://github.com/civo/cli/releases/download/v1.0.61/civo-1.0.61-linux
     chmod +x civo && \
     sudo mv ./civo /usr/local/bin/
 
-RUN wget https://github.com/triggermesh/tmctl/releases/download/v1.4.0/tmctl_linux_amd64.tar.gz && \
-    tar -xvf tmctl_linux_amd64.tar.gz && \
-    chmod +x tmctl && \
-    sudo mv ./tmctl /usr/local/bin/
-
 RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 && \
     chmod 700 get_helm.sh && \
     ./get_helm.sh

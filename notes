@@ -1,0 +1,32 @@
+sudo cp /home/linuxbrew/.linuxbrew/Cellar/ncurses/6.4/share/terminfo/a/alacritty /usr/share/terminfo/a/alacritty
+docker exec -it redpanda-0 rpk cluster info
+tmctl create broker b
+tmctl watch
+docker inspect redpanda-0
+docker exec -it redpanda-0 rpk topic create chat -p 3
+curl -s "localhost:18082/topics"
+
+curl -s \
+  -X POST \
+  "http://localhost:18082/topics/chat" \
+  -H "Content-Type: application/vnd.kafka.json.v2+json" \
+  -d '{
+  "records":[
+      {
+          "value":"Redpanda",
+          "partition":0
+      },
+      {
+          "value":"HTTP proxy",
+          "partition":1
+      },
+      {
+          "value":"Test event",
+          "partition":2
+      }
+  ]
+}'
+
+curl -s \
+  "http://localhost:18082/topics/chat/partitions/0/records?offset=0&timeout=1000&max_bytes=100000"\
+  -H "Accept: application/vnd.kafka.json.v2+json"

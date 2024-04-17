@@ -1,0 +1,8 @@
+{
+  "name": "nameOfStockfishGame",
+  "pgn": "1. d4 d5 2. c4 *",
+  "engineId": "stockfish",
+  "initialPv": 3,
+  "maxDuration": "PT30S",
+  "useSyzygyPath": true
+}

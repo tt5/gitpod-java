@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter Position</title>
+</head>
+<script>
+  // const hostname = "http://localhost:8080";
+  const hostname = "";
+
+  function init() {
+    const url = new URL(document.URL);
+    document.form1.name.value = url.searchParams.get("name");
+    document.form1.pgn.value = url.searchParams.get("pgn");
+    const engines = async () => {
+      await fetch(`${hostname}/api/engines`, {
+        method: 'GET'
+      })
+          .then(handleErrors)
+          .then(res => res.json())
+          .then(json => {
+            var dataList = document.getElementById('engines');
+            for (var i = 0; i < json.length; i++) {
+              engineName = json[i];
+              var option = document.createElement('option');
+              option.value = engineName;
+              option.innerText = engineName;
+              dataList.appendChild(option);
+            }
+            document.getElementById("engineJson").innerText = json;
+          })
+          .catch(error => {
+            console.error(error);
+            document.getElementById("engineJson").innerText = error.toString();
+          });
+    };
+    engines();
+    document.getElementById("allTasks").setAttribute("href", `${hostname}/api/tasks`);
+    document.getElementById("currentTask").setAttribute("href", `${hostname}/api/tasks/current`);
+  }
+
+  function postFormData(event) {
+    function formToJson() {
+      const formData = new FormData(document.form1);
+      let object = {};
+      formData.forEach((value, key) => {
+        value = value.trim();
+        if (value !== "") {
+          if ((key === "dynamicPv" || key === "options")) {
+            value = JSON.parse(value.normalize());
+          }
+          object[key] = value;
+        }
+      });
+      return JSON.stringify(object);
+    }
+
+    event.preventDefault();
+    const jsonText = formToJson();
+    document.getElementById("request1").innerText = jsonText;
+    fetch(`${hostname}/api/tasks`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: jsonText
+        }
+    )
+        .then(res => {
+          console.info(res);
+          return res;
+        })
+        .then(handleErrors)
+        .then(res => res.json())
+        .then(json => {
+          document.getElementById("result1").innerText = JSON.stringify(json, null, 2);
+          document.getElementById("link1").setAttribute("href", json.link.href);
+          document.getElementById("link1").innerText = json.link.href;
+        })
+        .catch(error => {
+          console.error(error);
+          document.getElementById("result1").innerText = error.toString();
+        });
+  }
+
+  function stop(event) {
+    event.preventDefault();
+    fetch(`${hostname}/api/tasks/stop`)
+        .then(res => {
+          console.info(res);
+          return res;
+        })
+        .then(handleErrors)
+        .then(res => res.json())
+        .then(json => {
+          document.getElementById("result1").innerText = JSON.stringify(json, null, 2);
+        })
+        .catch(error => {
+          console.error(error);
+          document.getElementById("result1").innerText = error.toString();
+        });
+
+  }
+
+  function handleErrors(response) {
+    if (!response.ok) {
+      // response.text().then(text => throw Error(text));
+      throw Error(`${response.status} (${response.statusText})`);
+    }
+    return response;
+  }
+</script>
+
+<body onload="init()">
+<form id="form1" method="post" name="form1">
+  <p><label for="name">Name</label>
+    <input id="name" name='name'></p>
+
+  <p><label for="pgn">PGN</label>
+    <textarea id="pgn" name='pgn' rows=7 cols=80> </textarea></p>
+
+  <p><label for="maxDuration">Duration</label>
+    <input id="maxDuration" name='maxDuration' value='PT1H1M1S'></p>
+
+  <p><label for="initialPv">Variants</label>
+    <input id="initialPv" name='initialPv' value="3"></p>
+
+  <p>
+  <table>
+    <tr>
+      <td><label for="engineId">Engine</label>
+        <input id="engineId" name='engineId' list="engines">
+        <datalist id="engines"></datalist>
+      </td>
+      <td>
+        <pre id="engineJson"></pre>
+      </td>
+    </tr>
+  </table>
+  </p>
+
+  <p><label for="useSyzygyPath">Use SyzygyPath</label>
+    <input type="checkbox" id="useSyzygyPath" name='useSyzygyPath' value='true'></p>
+
+  <p>
+  <table>
+    <tr>
+      <td><label for="options">Options</label>
+        <textarea id="options" name='options' rows=5 cols=40></textarea></td>
+      <td>[ {"name":"Use NNUE", "value":"true"} ]<br>
+        [ {"name":"SyzygyPath", "value":"/sy3-4-5"} ]<br>
+        [ {"name":"Hash", "value":"4096"}, {"name":"Threads", "value":"2"} ]
+      </td>
+    </tr>
+  </table>
+  </p>
+
+  <p><label for="dynamicPv">DynamicPv</label>
+    <textarea id="dynamicPv" name='dynamicPv' rows=2
+              cols=40>{"requiredDepth": 38,"cutOffCentiPawns": 30,"keepMinPv":2}</textarea></p>
+
+</form>
+<button id="submit">Post</button>
+<button id="btnStop">Stop</button>
+<button type="button" onclick="window.open('', '_self', ''); window.close();">Close</button>
+<br>
+<a id="allTasks" href="">All Tasks</a><br>
+<a id="currentTask" href="">Current Task</a><br>
+<a id="link1" href=""></a><br>
+<pre id="request1"></pre>
+<pre id="result1"></pre>
+<script>
+  document.getElementById("submit").addEventListener("click", postFormData);
+  document.getElementById("btnStop").addEventListener("click", stop);
+</script>
+</body>
+</html>

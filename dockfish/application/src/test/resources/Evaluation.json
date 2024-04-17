@@ -1,0 +1,24 @@
+{
+  "taskId": "value",
+  "status": "running",
+  "engineState": {
+    "depth": "21",
+    "time": "122323",
+    "nodes": "566600",
+    "lastUpdate": "2017-13-05 16:34:12"
+  },
+  "variations": [
+    {
+      "pv": "1",
+      "move": "3. Nc3",
+      "score": "0.2",
+      "line": "1. d4 Nf6 2. c4 g6 3. Nc3 d6 4. e4"
+    },
+    {
+      "pv": "2",
+      "move": "3. e4",
+      "score": "0.1",
+      "line": "1. d4 Nf6 2. c4 g6 3. Nc3 d6 4. e4"
+    }
+  ]
+}

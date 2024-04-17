@@ -1,0 +1,22 @@
+{
+  "name": "xy",
+  "pgn": "1.f4 d5 2.Nf3 Nf6 3.e3 g6 4.Be2 Bg7 5.O-O O-O 6.Nc3 c5 7.d4 b6 8.Ne5 Bb7 9.b3 Nc6 10.Bb2 e6 11.a4 Rc8 12.Bf3 Ne7 13.dxc5 Nd7 14.Nb5 Nxe5 15.fxe5 bxc5 16.Nxa7 Ra8 17.Nb5 Nc6 18.Be2 Nxe5 19.Bc3 Qg5 20.Rf2 Rfd8 21.Qd2 h5 22.Re1 Bc6 23.Rd1 h4 24.Nc7 *",
+  "maxDuration": "PT5H",
+  "useSyzygyPath": false,
+  "options": [
+    {
+      "name": "Threads",
+      "value": "1"
+    },
+    {
+      "name": "Hash",
+      "value": "800"
+    }
+  ],
+  "initialPv": 6,
+  "dynamicPv": {
+	"requiredDepth": 28,
+	"cutOffCentiPawns": 30,
+	"keepMinPv":2
+  }
+}

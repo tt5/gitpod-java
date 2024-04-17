@@ -1,0 +1,7 @@
+{
+  "name": "nameOfInvalidEngineGame",
+  "pgn": "1. d4 d5 2. c4 *",
+  "engineId": "superengine",
+  "initialPv": 4,
+  "maxDuration": "PT2H10S"
+}

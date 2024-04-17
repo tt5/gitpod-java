@@ -1,0 +1,18 @@
+include:
+  - project: 'ce72/ci'
+    ref: master
+    file: '/templates/JavaPipeline2.gitlab-ci.yml'
+
+variables:
+  RUN_NOTIFY_JOB: "true"
+  RUN_ERRORPRONE_JOB: "true"
+  RUN_SCANIMAGE_JOB: "true"
+
+build_test_push:
+  artifacts:
+    name: $CI_PROJECT_NAME-$CI_COMMIT_REF_SLUG-$RELEASE_TAG
+    paths:
+      - web/target/*.jar
+      - web/target/version*.txt
+      - version.txt
+    expire_in: 60 days

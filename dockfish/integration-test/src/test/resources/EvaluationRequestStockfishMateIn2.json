@@ -1,0 +1,9 @@
+{
+  "id": "customId",
+  "name": "Mate in 2 sf",
+  "pgn": "[Event \"Berlin\"]\n[Site \"Berlin GER\"]\n[Date \"1865.??.??\"]\n[EventDate \"?\"]\n[Round \"?\"]\n[Result \"1-0\"]\n[White \"Johannes Zukertort\"]\n[Black \"Adolf Anderssen\"]\n[ECO \"C60\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"23\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bb5 Nge7 4. c3 d6 5. d4 Bd7 6. O-O Ng6\n7. Ng5 h6 8. Nxf7 Kxf7 9. Bc4+ Ke7 10. Qh5 Qe8 11. Qg5+ *",
+  "engineId": "stockfish",
+  "initialPv": 3,
+  "maxDepth": 30,
+  "reference": "referenceId"
+}

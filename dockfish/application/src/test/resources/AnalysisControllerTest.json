@@ -1,0 +1,21 @@
+{
+  "name": "ce-xy",
+  "pgn": "1. d4 Nf6 2. c4 g6",
+  "initialPv": 3,
+  "maxDuration": "PT5H2M",
+  "options": [
+    {
+      "name": "Threads",
+      "value": "12"
+    },
+    {
+      "name": "Hash",
+      "value": "1234"
+    }
+  ],
+  "dynamicPv": {
+    "requiredDepth": 5,
+    "cutOffCentiPawns": 50,
+    "keepMinPv": 2
+  }
+}

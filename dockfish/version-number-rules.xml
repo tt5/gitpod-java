@@ -1,0 +1,25 @@
+<ruleset comparisonMethod="maven"
+         xmlns="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0 http://mojo.codehaus.org/versions-maven-plugin/xsd/rule-2.0.0.xsd">
+    <ignoreVersions>
+        <ignoreVersion type="regex">(?i).*[-_\.]sp[0-9\.]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*[-_\.]rc[-0-9\.]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*[-_\.]ea[-0-9\.]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*[-_\.]cr[-0-9\.]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*[-_\.]m[0-9\.]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*[-_\.]pr[0-9\.]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*[-_\.]edr[0-9\.]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*[-_\.]pfd[0-9\.]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*[-_\.]alpha[0-9\.-]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*[-_\.]beta[0-9\.-]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*[-_\.]redhat[0-9\.-]*</ignoreVersion>
+        <ignoreVersion type="regex">(?i).*-PUBLISHED-BY-MISTAKE</ignoreVersion>
+    </ignoreVersions>
+    <rules>
+        <rule groupId="org.slf4j" comparisonMethod="maven">
+            <ignoreVersions>
+                <ignoreVersion type="regex">.*-xwiki</ignoreVersion>
+            </ignoreVersions>
+        </rule>
+    </rules>
+</ruleset>

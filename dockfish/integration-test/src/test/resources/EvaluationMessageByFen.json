@@ -1,0 +1,21 @@
+{
+  "taskName": "Evaluate Position by FEN",
+  "analysedFen": "r3qb1r/pppbk1p1/2np2np/4p1Q1/2BPP3/2P5/PP3PPP/RNB2RK1 b - - 5 11",
+  "analysedPly": 21,
+  "status": "NOT_ACTIVE",
+  "evaluation": {
+    "taskId": "customId2",
+    "created": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*",
+    "variations": [
+      {
+        "pvId": 1,
+        "moves": "11. ... hxg5 12. Bxg5",
+        "score": "+99.99",
+        "depth": 28,
+        "time": "00:00:00",
+        "pgn": "11... hxg5 {pv1: +99.99;d28;00:00:00 Stockfish 16.1} 12. Bxg5 {pv1: +99.99;d28;00:00:00 Stockfish 16.1}                      *"
+      }
+    ]
+  }
+}
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <Match>
+        <Class name="raptor.chess.GameConstants" />
+        <Bug pattern="MS_OOI_PKGPROTECT" />
+    </Match>
+    <Match>
+        <Class name="raptor.chess.GameConstants" />
+        <Bug pattern="MS_MUTABLE_ARRAY" />
+    </Match>
+    <Match>
+        <Class name="raptor.chess.pgn.LenientPgnParserListener" />
+        <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" />
+    </Match>
+    <Match>
+        <Class name="ce.chess.dockfish.adapter.out.engine.EngineDirectoryConfiguration" />
+        <Bug pattern="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" />
+    </Match>
+    <Match>
+        <Source name="~.*?MapperImpl.*" />
+    </Match>
+    <Match>
+        <Class name="ce.chess.dockfish.adapter.out.engine.EngineController" />
+        <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" />
+    </Match>
+    <Match>
+        <Class name="ce.chess.dockfish.adapter.out.engine.EngineListener" />
+        <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" />
+    </Match>
+    <Match>
+        <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2,CT_CONSTRUCTOR_THROW" />
+    </Match>
+</FindBugsFilter>

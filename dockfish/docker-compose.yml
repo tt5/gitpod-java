@@ -1,0 +1,37 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3.13.1-management-alpine
+    hostname: rabbit_node_1
+    ports:
+      - 15672:15672
+      - 5672:5672
+
+  dockfish:
+    image: ce72/dockfish
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_USERNAME=${rabbitmq_username:-guest}
+      - RABBITMQ_PASSWORD=${rabbitmq_password:-guest}
+      - MP_MESSAGING_INCOMING_SUBMITTASKCOMMAND2_ENABLED=true
+      - MP_MESSAGING_INCOMING_SUBMITTASKCOMMAND2_QUEUE_NAME=queue2
+      - MP_MESSAGING_INCOMING_SUBMITTASKCOMMAND2_ROUTING_KEYS=windows
+      - uci_option_Hash=2048
+      - uci_option_Threads=2
+      - uci_option_Contempt=0
+      - uci_option_SyzygyPath=/sy3-4-5
+      - hostname=localtest
+      - task_consumer_delay_seconds=3
+    ports:
+      - 8080:8080
+    volumes:
+      - /sy3-4-5:/sy3-4-5
+    links:
+      - rabbitmq:rabbitmq
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    ports:
+      - 9080:8080
+    environment:
+      - API_URL=http://localhost:8080/q/openapi

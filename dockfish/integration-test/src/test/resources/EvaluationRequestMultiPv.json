@@ -1,0 +1,12 @@
+{
+  "name": "reducePv",
+  "pgn": "1. e4 e5 2. Nf3 Nf6 3. Nxe5",
+  "engineId": "stockfish",
+  "initialPv": 5,
+  "maxDepth": 25,
+  "dynamicPv": {
+    "requiredDepth": 22,
+    "cutOffCentiPawns": 20,
+    "keepMinPv": 2
+  }
+}

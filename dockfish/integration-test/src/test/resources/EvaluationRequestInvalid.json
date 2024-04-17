@@ -1,0 +1,6 @@
+{
+  "name": "nameOfInvalidGame",
+  "pgn": "1. d4 d5 2. c4 *",
+  "engineId": "dragon",
+  "initialPv": 4
+}

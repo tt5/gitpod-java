@@ -1,0 +1,44 @@
+{
+  "taskName": "Mate in 2 sf",
+  "reference": "referenceId",
+  "analysedPgn": "[Event \"Berlin\"]\n[Site \"Berlin GER\"]\n[Date \"1865.??.??\"]\n[Round \"?\"]\n[White \"Johannes Zukertort\"]\n[Black \"Adolf Anderssen\"]\n[Result \"*\"]\n[EventDate \"?\"]\n[WhiteElo \"?\"]\n[BlackElo \"?\"]\n[PlyCount \"23\"]\n[ECO \"C60\"]\n\n1. e4 e5 2. Nf3 Nc6 3. Bb5 Nge7 4. c3 d6 5. d4 Bd7 6. O-O Ng6 7. Ng5 h6 8. Nxf7 Kxf7 9. Bc4+\nKe7 10. Qh5 Qe8 11. Qg5+ *",
+  "analysedFen": "r3qb1r/pppbk1p1/2np2np/4p1Q1/2BPP3/2P5/PP3PPP/RNB2RK1 b - - 5 11",
+  "analysedPly": 21,
+  "uciEngineName": "Stockfish 16.1",
+  "taskDepth": 30,
+  "hostname": "localtest",
+  "status": "NOT_ACTIVE",
+  "evaluation": {
+    "taskId": "customId",
+    "created": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*",
+    "variations": [
+      {
+        "pvId": 1,
+        "moves": "11. ... hxg5 12. Bxg5",
+        "score": "+99.99",
+        "depth": 30,
+        "time": "00:00:00",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nge7 4. c3 d6 5. d4 Bd7 6. O-O Ng6 7. Ng5 h6 8. Nxf7 Kxf7 9. Bc4+ Ke7 10. Qh5 Qe8 11. Qg5+ hxg5 {pv1: +99.99;d30;00:00:00 Stockfish 16.1} 12. Bxg5 {pv1: +99.99;d30;00:00:00 Stockfish 16.1} *"
+      }
+    ],
+    "uciState": {
+      "kiloNodes": "^\\d+",
+      "kiloNodesPerSecond": "^\\d+",
+      "tbHits": 0
+    }
+  },
+  "taskStarted": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*",
+  "lastEvaluation": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*",
+  "lastAlive": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*",
+  "latestEvents": [
+    {
+      "multiPv": 1,
+      "lineSan": "11. ... hxg5 12. Bxg5",
+      "score": 9999,
+      "time": "00:00:00",
+      "depth": 30,
+      "occurredOn": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.*"
+    }
+  ]
+}
+

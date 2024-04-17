@@ -18,3 +18,5 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.27.4/b
     mkdir ~/.kube
     
 RUN echo 'alias k="kubectl"' >> /home/gitpod/.bashrc
+
+RUN sdk install java < /dev/null

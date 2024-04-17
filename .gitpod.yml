@@ -3,6 +3,7 @@ image:
 tasks:
     - command: |
 
+
           sudo civo apikey save gitpod1 $CIVO_API_KEY
           sudo civo region set FRA1
           echo 'civo kubernetes create -r "Traefik-v2-nodeport" -r "metrics-server" -w -e "default-default" -n 1 -s "g4s.kube.large"' > civostart.sh
@@ -12,4 +13,6 @@ tasks:
           echo 'NAME=$(civo kubernetes list -o json | jq -r ".[].name")' > civoremove.sh
           echo 'civo kubernetes remove ${NAME}' >> civoremove.sh
           chmod +x civoremove.sh#!/bin/bash
+          sdk install java < /dev/null
+
 
